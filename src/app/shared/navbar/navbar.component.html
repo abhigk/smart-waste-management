@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="sidebarToggle()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar bar1"></span>
+                <span class="icon-bar bar2"></span>
+                <span class="icon-bar bar3"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{getTitle()}}</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#notificationMenu">
+                         <div [ngStyle]="{'color': unreadCount>0 ? 'red':''}" >
+                          <i class="ti-bell"></i>
+                            <p>{{unreadCount}} Notifications</p>
+                            <b class="caret"></b>
+                         </div>
+                      </a>
+                      <ul class="dropdown-menu ofix">
+                          <!--<div *ngFor="let noti of notificationArray ">-->
+                        <li *ngFor="let noti of showArray">
+                            <a [ngStyle]="{'background-color': noti.status=='Unread' ? 'antiquewhite':'white'}" role="button" (click)="deleteNotification(noti)" >{{noti.message}}  </a>
+                        </li>
+                      </ul>
+                </li>
+
+                <li>
+                    <a href="#" (click)="logout()">
+                        <i class="ti-share"></i>
+                        <p>Log Out</p>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

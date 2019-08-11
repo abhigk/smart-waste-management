@@ -1,0 +1,8 @@
+image: node:6.9.4
+
+pipelines:
+  default:
+    - step:
+        script: 
+        - git push https://heroku:72bd7068-6fd7-4bd6-bda2-f9651365e3cf@git.heroku.com/bindata-app.git HEAD
+          

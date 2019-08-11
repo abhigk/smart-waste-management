@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <div class="col-md-8">
+                        <h4 class="title">Members</h4>
+                        <p class="category">Manage members here</p>
+                    </div>
+                    <div class="col-md-4">
+                        <button *ngIf="!editMode" type="button" class="btn btn-primary btn-round pull-right"  (click)="enableEdit()">Edit</button>
+                        <button *ngIf="editMode" type="button" class="btn btn-primary btn-round pull-right"  (click)="sendNotification()">Done</button>
+                    </div>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <!--<th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>-->
+                            <th>Select</th>
+                            <th>Name</th>
+                            <th colspan="1">Email</th>
+                            <th>Threshold</th>
+                            <!--<th>Is-Notified</th>-->
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr *ngFor="let row of userAry">
+                            <td><input type="checkbox" [disabled]="!editMode"  [checked]="row.notifed" (change)="handleChange(row)" ngModel></td>
+                            <td>{{row.name}}</td>
+                            <td >{{row.email}}</td>
+                            <td><input type="text" class="form-control border-input" name="threshold" [disabled]="!row.notifed" [(ngModel)]="row.threshold" style="max-width: 20%;"></td>
+                            <!--<td>{{row.getNotifed()}}<td>-->
+                        </tr>
+                        </tbody>
+
+                        <!--<tbody>-->
+                        <!--<tr *ngFor="let row of superArray">-->
+                        <!--<td *ngIf="editMode"><input type="checkbox"  [checked]="row.getNotifed()" (change)="handleChange(row)" ngModel></td>-->
+                        <!--<td *ngFor="let cell of row">{{cell}}</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    </table>
+
+                </div>
+            </div>
+            <div *ngIf="notifySent" class="alert alert-success alert-dismissible" role="alert">
+                <a (click)="dismissAlert()" style="right: 11px;" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{msg}}
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

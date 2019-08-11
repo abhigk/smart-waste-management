@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Voting App </title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCnJbmz0_895zUf1k6dJu65K9BBNriJvxU",
+        authDomain: "node-firebase-intro-a7dad.firebaseapp.com",
+        databaseURL: "https://node-firebase-intro-a7dad.firebaseio.com",
+        projectId: "node-firebase-intro-a7dad",
+        storageBucket: "node-firebase-intro-a7dad.appspot.com",
+        messagingSenderId: "727559507487"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <h1> Voting App </h1>
+    <p> Login with firebase </p>
+    <h3 id = "google-diplayName"> </h3>
+    <img id = "google-pic" src= ""/>
+    <p id = "google-email">  </p>
+
+    <button onClick = {signInWithGoogle()}>
+      Sign In With google
+    </button>
+    <script>
+          function signInWithGoogle()
+          {
+            var googleAuthProvider = new firebase.auth.GoogleAuthProvider
+            firebase.auth().signInWithPopup(googleAuthProvider)
+            .then(function(data)
+            {
+              //console.log(data)
+
+
+              var imageURL = data.user.photoURL
+              var email = data.user.email
+              var name = data.user.displayName
+
+
+
+            //  document.getElementById('google-pic')
+              //        .setAttribute('src', imageURL)
+
+
+
+              //console.log(imageURL)
+              //console.log(email)
+              //console.log(name)
+              //set the imgae, p and h3 to be the
+              //photoURL of my google account
+              //email and display name
+
+            })
+            .catch(function(error)
+            {
+              //console.log(error)
+            })
+          }
+    </script>
+  </body>
+</html>

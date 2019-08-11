@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row" style="width: 75vw;padding-left: 20px; padding-right: 20px">
+    <div class="card" style="height: 50vh">
+      <ngx-charts-line-chart stye
+
+              [scheme]="colorScheme"
+              [results]="multi"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [legendTitle]="legendTitle"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [autoScale]="autoScale"
+              (select)="onSelect($event)">
+      </ngx-charts-line-chart>
+
+    </div>
+
+  </div>
+  <div class="row" style="width: 75vw;  padding-left: 90px; padding-right: 60px">
+    <div class="content">
+      <div class="card" style="height: 500px; width: 60vw;">
+        <p style="margin-left: 5px">   Capacity left in all bins</p>
+        <ngx-charts-pie-chart
+                [legend]="showLegend"
+                [gradient]="gradient"
+                [legendTitle]="legendTitle"
+                [results]="pieData"
+                [labels]="true">
+
+        </ngx-charts-pie-chart>
+
+      </div>
+    </div>
+    <!--<div class="pull-right">-->
+      <!--<div class="card" style="height: 300px; width: 400px; ">-->
+
+      <!--</div>-->
+
+    <!--</div>-->
+
+
+  </div>
+
+</div>
+
